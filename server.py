@@ -1,3 +1,4 @@
+from turtle import clear
 from flask import Flask, render_template, session, redirect, request
 app = Flask(__name__)
 app.secret_key = 'i used to be an adventurer like you, until i took an arrow to the knee'
@@ -9,6 +10,11 @@ def counter():
     else:
         session["counter"] = 1
     return render_template("index.html", session = session)
+
+@app.route('/destroy_session')
+def destroy_session():
+    session.clear()
+    return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug = True)
