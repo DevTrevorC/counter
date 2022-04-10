@@ -10,7 +10,14 @@
 <body>
     <h1>Counter</h1>
     <p>{{session["counter"]}}</p>
-    <button>HI</button>
-    <button>HI</button>
+    <div>
+        <button onclick="window.location.href = '/by_2'">+2</button>
+        <button  onclick="window.location.href = '/destroy_session'">reset</button>
+    </div>
+    <form action="/this_to_counter" method="post">
+        <input type="text" name="more_to_counter">
+        <input type="submit" value="add">
+    </form>
+    <p>visits: {{session["visits"]}}</p>
 </body>
 </html>
